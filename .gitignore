@@ -1,0 +1,5 @@
+# prod build #
+node_modules
+dist/fonts/*
+dist/styles/*
+dist/js/*
