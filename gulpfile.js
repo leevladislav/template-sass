@@ -52,7 +52,7 @@ gulp.task('scripts', function() {
         //PATH.dev + 'libs/jquery/jquery.min.js', // another vendors
         PATH.dev + 'js/**/*.js'
         ])
-        .pipe(browserSync.reload({stream: true}))
+        .pipe(browserSync.reload({stream: true}));
 });
 
 // minify css and switching css to prod
@@ -111,10 +111,16 @@ gulp.task('clean', function() {
     ]);
 });
 
-// minify and switching images into prod
-gulp.task('image', function () {
+// minify images 
+gulp.task('image-minify', function () {
     gulp.src(PATH.dev + 'img/**/*')
       .pipe(image())
+      .pipe(gulp.dest(PATH.dev + 'img'))
+});
+
+// switching images into prod
+gulp.task('image', function () {
+    return gulp.src(PATH.dev + 'img/**/*')
       .pipe(gulp.dest(PATH.prod + 'img'));
 });
 
@@ -122,6 +128,12 @@ gulp.task('image', function () {
 gulp.task('fonts', function() {
     return gulp.src(PATH.dev + 'fonts/**/*') 
     .pipe(gulp.dest(PATH.prod + 'fonts'));
+});
+
+// prebuilding project 
+gulp.task('libs', function() {
+    return gulp.src(PATH.dev + 'libs/**/*') 
+    .pipe(gulp.dest(PATH.prod + 'libs'));
 });
 
 // clear cache
@@ -134,7 +146,7 @@ gulp.task('watch', function() {
     gulp.watch(PATH.dev + '**/*.html', gulp.parallel('html')); 
     gulp.watch([PATH.dev + 'js/**/*.js'], gulp.parallel('scripts')); 
 });
-gulp.task('default', gulp.parallel('sass', 'html', 'browser-sync', 'watch'));
+gulp.task('default', gulp.parallel('sass', 'html', 'image-minify', 'browser-sync', 'watch'));
 
 // building and minify project 
-gulp.task('build', gulp.parallel('clean', 'scripts', 'scripts-uglify', 'sass', 'css-minify', 'fonts', 'image'));
+gulp.task('build', gulp.series('clean', 'fonts', 'libs', 'image', 'scripts', 'scripts-uglify', 'sass', 'css-minify'));
