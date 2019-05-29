@@ -47,7 +47,7 @@
   $form-range-track-background:                   $global-muted-background;
   $form-range-track-focus-background:             $global-muted-background;
 
-  $internal-form-select-image:                    url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 24 16" fill="black"><path d="M12 1l-3 5h6z"></path><path d="M12 13l-3-5h6z"></path></svg>');
+  $internal-form-select-image:                    url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 451.847 451.847" xml:space="preserve" fill="black"><path d="M225.923,354.706c-8.098,0-16.195-3.092-22.369-9.263L9.27,151.157c-12.359-12.359-12.359-32.397,0-44.751c12.354-12.354,32.388-12.354,44.748,0l171.905,171.915l171.906-171.909c12.359-12.354,32.391-12.354,44.744,0c12.365,12.354,12.365,32.392,0,44.751L248.292,345.449C242.115,351.621,234.018,354.706,225.923,354.706z"/></svg>');
   $internal-form-radio-image:                     url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="black"><path d="M10 8c0 1.105-0.895 2-2 2s-2-0.895-2-2c0-1.105 0.895-2 2-2s2 0.895 2 2z"></path></svg>');
   $internal-form-checkbox-image:                  url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="16" viewBox="0 0 22 16" stroke="black"><path fill="none" stroke="inherit" stroke-width="1.8824" stroke-miterlimit="50" stroke-linecap="butt" stroke-linejoin="miter" d="M20.028 2.353l-12.028 12.028-6.381-6.381"></path></svg>');
   $internal-form-checkbox-indeterminate-image:    url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="black"><path d="M3 8h10v1h-10v-1z"></path></svg>');
@@ -67,6 +67,7 @@ textarea {
 button,
 select {
   text-transform: none;
+  cursor: pointer;
 }
 
 [type="number"]::-webkit-inner-spin-button,
